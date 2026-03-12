@@ -60,7 +60,6 @@ body {
 /* Prevent any element from causing horizontal scroll */
 section,
 footer,
-nav,
 .farm-banner {
     max-width: 100vw;
     overflow-x: hidden;
@@ -150,6 +149,7 @@ a {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition);
+    overflow: visible;
 }
 
 .navbar.scrolled {
@@ -187,19 +187,26 @@ a {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     list-style: none;
     flex-wrap: nowrap;
 }
 
+.nav-menu > li {
+    display: flex;
+    align-items: center;
+}
+
 .nav-link {
-    padding: 7px 12px;
+    display: inline-block;
+    padding: 8px 14px;
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--text-medium);
     border-radius: 50px;
     transition: all var(--transition);
     white-space: nowrap;
+    line-height: 1;
 }
 
 .nav-link:hover {
@@ -211,14 +218,16 @@ a {
     background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: var(--white) !important;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 9px 20px;
     white-space: nowrap;
+    margin-left: 6px;
 }
 
 .nav-cta:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(200, 168, 78, 0.4);
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
+    color: var(--white) !important;
 }
 
 .nav-toggle {
@@ -944,10 +953,15 @@ a {
         background: var(--white);
         flex-direction: column;
         align-items: stretch;
-        padding: 8px 0 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        padding: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         z-index: 1001;
         gap: 0;
+        border-top: 3px solid var(--gold);
+    }
+
+    .nav-menu > li {
+        display: block;
     }
 
     .nav-menu.active {
@@ -955,20 +969,39 @@ a {
     }
 
     .nav-link {
-        padding: 13px 24px;
-        font-size: 0.95rem;
+        display: block;
+        padding: 15px 24px;
+        font-size: 1rem;
         border-radius: 0;
         text-align: left;
         white-space: normal;
-        border-bottom: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f0f0f0;
+        color: var(--text-dark);
+        margin-left: 0;
     }
 
-    .nav-cta {
-        margin: 10px 16px 0;
+    .nav-link:hover {
+        background: var(--cream);
+        color: var(--green-dark);
+    }
+
+    /* Order Now — visually separated at the bottom */
+    .nav-menu > li:last-child {
+        padding: 16px 20px 20px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-menu > li:last-child .nav-cta {
+        display: block;
+        margin: 0;
         border-radius: 50px;
+        border-bottom: none;
+        padding: 14px 20px;
+        font-size: 1rem;
         text-align: center;
-        border: none;
-        padding: 12px 20px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        color: var(--white) !important;
+        box-shadow: 0 4px 15px rgba(200, 168, 78, 0.3);
     }
 
     .nav-toggle.active span:nth-child(1) {
