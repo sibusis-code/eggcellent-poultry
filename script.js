@@ -60,25 +60,25 @@ orderForm.addEventListener('submit', (e) => {
     const message = document.getElementById('message').value.trim();
 
     // Build WhatsApp message
-    let waMessage = `🥚 *New Order from Eggcellent Poultry Website*\n\n`;
-    waMessage += `👤 *Name:* ${name}\n`;
-    waMessage += `📱 *Phone:* ${phone}\n`;
+    let waMessage = `New Order from Eggcellent Poultry Website\n\n`;
+    waMessage += `Name: ${name}\n`;
+    waMessage += `Phone: ${phone}\n`;
 
     if (location) {
-        waMessage += `📍 *Location:* ${location}\n`;
+        waMessage += `Location: ${location}\n`;
     }
 
-    waMessage += `🛒 *Product:* ${product}\n`;
+    waMessage += `Product: ${product}\n`;
 
     if (quantity) {
-        waMessage += `📦 *Quantity:* ${quantity}\n`;
+        waMessage += `Quantity: ${quantity}\n`;
     }
 
     if (message) {
-        waMessage += `💬 *Message:* ${message}\n`;
+        waMessage += `Message: ${message}\n`;
     }
 
-    waMessage += `\n---\nSent from eggcellentpoultry.co.za`;
+    // waMessage += `\n---\nSent from eggcellentpoultry.co.za`;
 
     // Encode and open WhatsApp
     const encodedMessage = encodeURIComponent(waMessage);
